@@ -4,14 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Works: <%= controller.action_name %></title>
+  <title>RaykoWeb</title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
+  <h4>A continuacion esta el contenido</h4>
+  <div id="contenido">
+        <%= yield %>
+  </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
 
 </body>
 </html>
+

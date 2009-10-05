@@ -583,3 +583,29 @@ Processing SessionsController#create (for 10.0.0.3 at 2009-10-04 23:05:23) [POST
 Failed login for 'asd' from 10.0.0.3 at Mon Oct 05 02:05:23 UTC 2009
 Rendering sessions/new
 Completed in 24ms (View: 5, DB: 4) | 200 OK [http://10.0.0.4/session]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing MainController#index (for 200.117.246.18 at 2009-10-05 16:42:39) [GET]
+Rendering template within layouts/application
+Rendering main/index
+Completed in 26ms (View: 22, DB: 0) | 200 OK [http://rayko.com.ar/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing WorksController#index (for 200.117.246.18 at 2009-10-05 16:44:24) [GET]
+  [4;36;1mWork Load (2.0ms)[0m   [0;1mSELECT * FROM "works" [0m
+Rendering template within layouts/application
+Rendering works/index
+Completed in 198ms (View: 153, DB: 2) | 200 OK [http://rayko.com.ar/works]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing RatesController#index (for 200.117.246.18 at 2009-10-05 16:44:48) [GET]
+  [4;35;1mRate Load (2.0ms)[0m   [0mSELECT * FROM "rates" [0m
+Rendering template within layouts/application
+Rendering rates/index
+Completed in 29ms (View: 15, DB: 2) | 200 OK [http://rayko.com.ar/rates]
