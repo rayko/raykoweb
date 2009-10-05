@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  format: MyString
+  mod_url: MyString
+  mp3_url: MyString
+
+two:
+  title: MyString
+  description: MyText
+  format: MyString
+  mod_url: MyString
+  mp3_url: MyString

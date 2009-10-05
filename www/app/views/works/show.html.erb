@@ -1,0 +1,28 @@
+<p>
+  <b>Title:</b>
+  <%=h @work.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @work.description %>
+</p>
+
+<p>
+  <b>Format:</b>
+  <%=h @work.format %>
+</p>
+
+<p>
+  <b>Mod url:</b>
+  <%=h @work.mod_url %>
+</p>
+
+<p>
+  <b>Mp3 url:</b>
+  <%=h @work.mp3_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_work_path(@work) %> |
+<%= link_to 'Back', works_path %>
