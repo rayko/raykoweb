@@ -609,3 +609,83 @@ Processing RatesController#index (for 200.117.246.18 at 2009-10-05 16:44:48) [GE
 Rendering template within layouts/application
 Rendering rates/index
 Completed in 29ms (View: 15, DB: 2) | 200 OK [http://rayko.com.ar/rates]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (37.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateWorks (20090917180554)
+Migrating to CreateComments (20090917180728)
+Migrating to CreateRates (20090917181000)
+Migrating to CreateUsers (20091005012936)
+Migrating to AddForeingKeys (20091019123304)
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (131.7ms)[0m   [0;1mALTER TABLE "comments" ADD COLUMN "work_id" integer[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mALTER TABLE "rates" ADD COLUMN "work_id" integer[0m
+  [4;36;1mSQL (52.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091019123304')[0m
+  [4;35;1mSQL (24.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing MainController#index (for 190.225.62.58 at 2009-10-19 09:38:48) [GET]
+Rendering template within layouts/application
+Rendering main/index
+Completed in 89ms (View: 86, DB: 4) | 200 OK [http://rayko.com.ar/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing MainController#index (for 200.117.246.18 at 2009-11-03 16:19:52) [GET]
+Rendering template within layouts/application
+Rendering main/index
+Completed in 85ms (View: 82, DB: 0) | 200 OK [http://rayko.com.ar/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mWork Load (254.9ms)[0m   [0;1mSELECT * FROM "works" [0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (5.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (5.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateWorks (20090917180554)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "format" varchar(255), "mod_url" varchar(255), "mp3_url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090917180554')[0m
+Migrating to CreateComments (20090917180728)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "mail" varchar(255), "comment" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090917180728')[0m
+Migrating to CreateRates (20090917181000)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "rates" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "rate" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090917181000')[0m
+Migrating to CreateUsers (20091005012936)
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar(40), "name" varchar(100) DEFAULT '', "email" varchar(100), "crypted_password" varchar(40), "salt" varchar(40), "created_at" datetime, "updated_at" datetime, "remember_token" varchar(40), "remember_token_expires_at" datetime, "activation_code" varchar(40), "activated_at" datetime) [0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mCREATE UNIQUE INDEX "index_users_on_login" ON "users" ("login")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091005012936')[0m
+Migrating to AddForeingKeys (20091019123304)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mALTER TABLE "comments" ADD "work_id" integer[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mALTER TABLE "rates" ADD "work_id" integer[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091019123304')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("comments")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("rates")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_login')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("works")[0m
