@@ -1,0 +1,9 @@
+<div class="comment">
+  <p>
+    User: <%=h comment.name.nil? ? 'Anonymous' : comment.name %><br />
+    e-Mail: <%=h comment.mail.nil? ? 'Anonymous' : comment.mail %>
+  </p>
+  <p>
+    <%=h comment.comment %>
+  </p>
+</div>

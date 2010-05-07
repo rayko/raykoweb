@@ -1,28 +1,44 @@
-<p>
-  <b>Title:</b>
-  <%=h @work.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%=h @work.description %>
-</p>
-
-<p>
-  <b>Format:</b>
-  <%=h @work.format %>
-</p>
-
-<p>
-  <b>Mod url:</b>
-  <%=h @work.mod_url %>
-</p>
-
-<p>
-  <b>Mp3 url:</b>
-  <%=h @work.mp3_url %>
-</p>
-
-
-<%= link_to 'Edit', edit_work_path(@work) %> |
-<%= link_to 'Back', works_path %>
+<div id="song-info"
+  <p>
+    <b>Title:</b>
+    <%=h @work.title %>
+  </p>
+  <p>
+    <b>Format:</b>
+    <%=h @work.format %>
+  </p>
+  <p>
+    <b>Mod url:</b>
+    <%=h @work.mod_url %>
+  </p>
+  <p>
+    <b>Mp3 url:</b>
+    <%=h @work.mp3_url %>
+  </p>
+  <p>
+    <b>Score: </b>
+    <span class="big-numbers">
+      <% if @work.rates.size > 0 %>
+        <% rate = 0 %>
+        <% @work.rates.collect{|r| total += r.rate} %>
+        <%= "#{rate / @work.rates.size} / 10" %>
+      <% else %>
+        <%= "N/A / 10" %>
+      <% end %>
+    </span>
+</div>
+<div id="song-desc">
+  <p>
+    <b>Description:</b>
+    <%=h @work.description %>
+  </p>
+</div>
+<div id="song-comments">
+  <h3>Comments</h3>
+  <% if @work.comments.size > 0 %>
+    <%= render :partial => 'comments/comment', :collection => @work.comments %>
+  <% else %>
+    <i>No comments yet</i>
+  <% end %>
+  <%= render :partial => 'comments/new_comment', :locals => {:wid => @work.id} %>
+</div>

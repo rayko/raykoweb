@@ -1,28 +1,18 @@
-<h1>Listing works</h1>
+<h1>List of songs</h1>
 
 <table>
   <tr>
+    <th>Released</th>
     <th>Title</th>
-    <th>Description</th>
     <th>Format</th>
-    <th>Mod url</th>
-    <th>Mp3 url</th>
   </tr>
 
 <% @works.each do |work| %>
   <tr>
+    <td><%=h work.created_at %></td>
     <td><%=h work.title %></td>
-    <td><%=h work.description %></td>
     <td><%=h work.format %></td>
-    <td><%=h work.mod_url %></td>
-    <td><%=h work.mp3_url %></td>
-    <td><%= link_to 'Show', work %></td>
-    <td><%= link_to 'Edit', edit_work_path(work) %></td>
-    <td><%= link_to 'Destroy', work, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Details', work_path(work) %>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New work', new_work_path %>

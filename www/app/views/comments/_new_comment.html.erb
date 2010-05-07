@@ -1,0 +1,18 @@
+<% form_tag comments_path do %>
+  <%= hidden_field_tag :work_id, wid %>
+  <p>
+    <%= label_tag :name %><span class="small">(optional)</span><br />
+    <%= text_field_tag :name %>
+  </p>
+  <p>
+    <%= label_tag :mail %><span class="small">(optional)</span><br />
+    <%= text_field_tag :mail %>
+  </p>
+  <p>
+    <%= label_tag :comment %><br />
+    <%= text_area_tag :comment %>
+  </p>
+  <p>
+    <%= submit_tag 'Post' %>
+  </p>
+<% end %>
